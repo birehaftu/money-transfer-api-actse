@@ -2,10 +2,9 @@ package edu.act.moneytransfer.domains;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -15,19 +14,33 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "First name is mandatory.")
+    @Column(nullable = false)
     private String firstName;
 
+    @NotBlank(message = "Middle name is mandatory.")
+    @Column(nullable = false)
     private String middleName;
 
+    @NotBlank(message = "Last name is mandatory.")
+    @Column(nullable = false)
     private String lastName;
 
+    @NotBlank(message = "Email is mandatory.")
+    @Column(nullable = false)
     private String email;
 
+    @NotBlank(message = "Phone number is mandatory.")
+    @Column(nullable = false)
     private String phoneNumber;
 
+    @NotNull(message = "Pin is mandatory.")
+    @Column(nullable = false)
     private Integer pin;
 
-    private Boolean isVerified;
+    // assign default value
+    private Boolean isVerified = Boolean.TRUE;
 
-    private Double balance;
+    // assign default value
+    private Double balance = 0.0;
 }
