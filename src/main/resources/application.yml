@@ -1,9 +1,11 @@
+server:
+  port : 9095
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/moneytransfer
-    username: moneytransfer
-    password: m0neytr4n5f3r
+    username: moneytransferuser
+    password: '!QAZxsw2'
   sql:
     init:
       mode: always
@@ -14,3 +16,4 @@ spring:
     # Optional
     properties:
       hibernate: org.hibernate.dialect.PostgreSQLDialect
+
